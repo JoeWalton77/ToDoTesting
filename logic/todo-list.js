@@ -30,18 +30,34 @@ export class TodoList {
   }
   
   countTotalTasks() {
-    return -1
+    return this.tasks.length
   }
 
   countIncompleteTasks() {
-    return -1
+    /* let incompleteTasksNum
+    if (!this.tasks.isComplete) {
+      incompleteTasksNum++
+    }
+
+    return incompleteTasksNum */
+    return this.tasks
+      .filter((task) => !task.isComplete)
+      .length
   }
 
   countCompleteTasks() {
-    return -1
+    return this.tasks
+      .filter((task) => task.isComplete)
+      .length
   }
 
   checkIsEntireListComplete() {
-    return -1
+    if (this.tasks.every((task) => task.isComplete)) {
+      return true
+    }
+    else {
+      return false
+    }
+    
   }
 }
